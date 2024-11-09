@@ -47,3 +47,15 @@ for texto in textos:
     print(f"\nTexto original: {texto}")
     traduccion = traducir(texto)
     print(f"Traducción: {traduccion}")
+
+# Ver Vocabulario
+# Cargar el tokenizador del modelo
+modelo = "Helsinki-NLP/opus-mt-en-es"
+tokenizer = MarianTokenizer.from_pretrained(modelo)
+
+# Obtener el vocabulario
+vocabulario = tokenizer.get_vocab()
+
+# Mostrar algunas entradas del vocabulario
+for token, id_token in list(vocabulario.items())[:100]:  # Muestra los primeros 10 tokens
+    print(f"Token: {token} | ID: {id_token}")
